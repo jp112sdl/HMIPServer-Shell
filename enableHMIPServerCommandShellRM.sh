@@ -27,14 +27,6 @@ if [ "$?" -eq 0 ]; then echo "OK"; else echo "ERROR"; fi
 
 /etc/init.d/S50sshd restart
 
-
-echo -n "crRFD Mods - "
-LINE='Eventbus.Command.Shell.Enabled=true'
-FILE='/var/etc/crRFD.conf'
-#FILE='/etc/config_templates/crRFD.conf'
-grep -qF -- "$LINE" "$FILE" || echo "$LINE" >> "$FILE"
-if [ "$?" -eq 0 ]; then echo "OK"; else echo "ERROR"; fi
-
 echo "Download and Extract X11 Libs..."
 mount -o remount,rw /
 ARCH=$(uname -m)
